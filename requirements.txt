@@ -1,0 +1,12 @@
+alembic
+Jinja2
+Flask
+numpy
+SQLAlchemy
+requests
+Flask_SQLAlchemy
+validators
+flask_migrate
+python_magic
+uwsgi
+mysql
