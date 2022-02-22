@@ -9,4 +9,4 @@ validators
 flask_migrate
 python_magic
 uwsgi
-mysql
+mysqlclient
