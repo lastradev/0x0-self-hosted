@@ -337,14 +337,20 @@ def fhost():
 
         if "file" in request.files:
             return store_file(request.files["file"], request.remote_addr)
-        elif "url" in request.form:
-            return store_url(request.form["url"], request.remote_addr)
-        elif "shorten" in request.form:
-            return shorten(request.form["shorten"])
+        # uncomment to enable post remote address
+        # elif "url" in request.form:
+        #     return store_url(request.form["url"], request.remote_addr)
+        # uncomment to enable shorten urls
+        # elif "shorten" in request.form:
+        #     return shorten(request.form["shorten"])
 
         abort(400)
     else:
         return render_template("index.html")
+
+@app.route("/terms")
+def terms():
+    return render_template("terms.html")
 
 @app.route("/robots.txt")
 def robots():

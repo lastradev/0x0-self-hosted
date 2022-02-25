@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html dir="auto" lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Terms - VoidShare</title>
+
+	<meta name="description" content="Simple &amp; Libre Temporary File Uploader" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="icon" href="{{ url_for('static', filename='content/image/oy68d45ywsxtu63b2yib.png') }}" />
+
+	<meta property="og:title" content="Terms - VoidShare" />
+	<meta property="og:description" content="Simple &amp; Libre Temporary File Uploader" />
+	<meta property="og:image" content="{{ url_for('static', filename='assets/og-image.png') }}" />
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/tobi.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/style.css') }}" />
+
+</head>
+	<body>
+		<main>
+<article class="page">
+	<header class="page__header">
+		<h1 class="page__title">Terms</h1>
+	</header>
+	<div class="page__content">
+		File URLs are valid for at least 30 days and up to a year (see below).
+		<br>
+		{% set max_size = config["MAX_CONTENT_LENGTH"]|filesizeformat(True) %}
+		Maximum file size: {{ max_size }}
+		Not allowed: {{ config["FHOST_MIME_BLACKLIST"]|join(", ") }}
+
+		<h2>File Retention Period</h2>
+
+		retention = min_age + (-max_age + min_age) * pow((file_size / max_size - 1), 3)
+<pre>
+   days
+    365 |  \\
+        |   \\
+        |    \\
+        |     \\
+        |      \\
+        |       \\
+        |        ..
+        |          \\
+  197.5 | ----------..-------------------------------------------
+        |             ..
+        |               \\
+        |                ..
+        |                  ...
+        |                     ..
+        |                       ...
+        |                          ....
+        |                              ......
+     30 |                                    ....................
+          0{{ ((config["MAX_CONTENT_LENGTH"]/2)|filesizeformat(True)).split(" ")[0].rjust(27) }}{{ max_size.split(" ")[0].rjust(27) }}
+           {{ max_size.split(" ")[1].rjust(54) }}
+</pre>
+		<h2>ABUSE</h2>
+
+		If you would like to request permanent deletion, please contact me
+		<a href = "mailto: oscar.glastra@gmail.com">oscar.glastra@gmail.com</a>
+		<br>
+		Please allow up to 24 hours for a response.
+	</div>
+</article>
+
+
+
+		</main>
+		<footer class="footer">
+			<div class="container">
+				<div class="footer__container">
+					<p class="footer__love">
+						<script>document.write('&copy;' + (new Date()).getFullYear());</script><noscript>&copy;2022</noscript> All rights reserved
+							&mdash; Template by <a href="https://www.sandoche.com" target="_blank">Sandoche</a>
+					</p>
+					<ul class="footer__links">
+							<li class="footer__link">
+								<a href="/terms">Terms</a>
+							</li>
+							<li class="footer__link">
+								<a href="https://github.com/lastra-dev/void-share" target="_blank">GitHub</a>
+							</li>
+					</ul>
+				</div>
+			</div>
+		</footer>
+
+		<script type="text/javascript" src="{{ url_for('static', filename='assets/tobi.min.js') }}" /></script>
+		<script>
+			window.onload = function () {
+				var tobi = new Tobi();
+			};
+		</script>
+
+  </body>
+</html>
