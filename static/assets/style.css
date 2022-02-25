@@ -234,16 +234,16 @@ html[dir=rtl] .app__logo-wrapper {
 }
 @media (max-width: 768px) {
   .app__button-play img {
-    width: 126px;
+    width: 116px;
   }
   .app__button-ios img {
     width: 100px;
   }
-  .app__button-web {
-    margin-left: 8px;
-  }
+  /* .app__button-web { */
+  /*   margin-left: 8px; */
+  /* } */
   .app__button-web img {
-    width: 112px;
+    width: 132px;
   }
 }
 .app__section-title {
