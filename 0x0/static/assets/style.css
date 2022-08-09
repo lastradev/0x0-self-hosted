@@ -220,7 +220,7 @@ html[dir=rtl] .app__logo-wrapper {
   }
 }
 .app__button-play img {
-  width: 146.4px;
+  width: 166.5px;
 }
 .app__button-ios img {
   width: 140px;
@@ -234,7 +234,7 @@ html[dir=rtl] .app__logo-wrapper {
 }
 @media (max-width: 768px) {
   .app__button-play img {
-    width: 116px;
+    width: 132px;
   }
   .app__button-ios img {
     width: 100px;

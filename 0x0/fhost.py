@@ -36,7 +36,7 @@ app = Flask(__name__, instance_relative_config=True)
 app.config.update(
     SQLALCHEMY_TRACK_MODIFICATIONS = False,
     PREFERRED_URL_SCHEME = "https", # nginx users: make sure to have 'uwsgi_param UWSGI_SCHEME $scheme;' in your config
-    MAX_CONTENT_LENGTH = 512 * 1024 * 1024,
+    MAX_CONTENT_LENGTH = 256 * 1024 * 1024,
     MAX_URL_LENGTH = 4096,
     USE_X_SENDFILE = False,
     FHOST_USE_X_ACCEL_REDIRECT = True, # expect nginx by default
@@ -337,12 +337,10 @@ def fhost():
 
         if "file" in request.files:
             return store_file(request.files["file"], request.remote_addr)
-        # uncomment to enable post remote address
-        # elif "url" in request.form:
-        #     return store_url(request.form["url"], request.remote_addr)
-        # uncomment to enable shorten urls
-        # elif "shorten" in request.form:
-        #     return shorten(request.form["shorten"])
+        elif "url" in request.form:
+            return store_url(request.form["url"], request.remote_addr)
+        elif "shorten" in request.form:
+            return shorten(request.form["shorten"])
 
         abort(400)
     else:

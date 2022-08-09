@@ -1,4 +1,2 @@
-__pycache__/
-.py[cod]
-env/
-up/
+data/
+docker-compose.yml
