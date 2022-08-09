@@ -30,8 +30,8 @@ os.chdir(app.config["FHOST_STORAGE_PATH"])
 files = [f for f in os.listdir(".")]
 
 maxs = app.config["MAX_CONTENT_LENGTH"]
-mind = 30
-maxd = 365
+mind = 1
+maxd = 7
 
 for f in files:
     stat = os.stat(f)
